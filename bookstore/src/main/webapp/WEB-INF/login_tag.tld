@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+    					http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <!-- 描述 自定义标签版本的一种描述 可以改-->
+    <description>login tag</description>
+    <!-- 显示的名称 导包进行的一个展示 ，可以改-->
+    <display-name>login core</display-name>
+    <!-- 版本号 -->
+    <tlib-version>1.0</tlib-version>
+    <!-- 引入中的prefix<%@ taglib prefix="p1" uri="http://lxy.login-tags"%> ，可以改-->
+    <short-name>p1</short-name>
+    <!-- jsp页面中引入中的uri<%@ taglib prefix="p1" uri="http://lxy.login-tags"%> ，可以更改-->
+    <uri>http://lxy.login-tags</uri>
+
+    <!-- 定义一个标签 -->
+    <tag>
+        <!-- 标签名 <p1:login_tag/>-->
+        <name>login_tag</name>
+        <!-- 标签处理类 需要更换-->
+        <tag-class>com.bookStore.utils.LoginTag</tag-class>
+        <!-- 设置标签为空 为空时代表单标签-->
+        <body-content>empty</body-content>
+
+    </tag>
+</taglib>

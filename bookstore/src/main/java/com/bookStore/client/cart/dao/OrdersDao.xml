@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookStore.client.cart.dao.OrdersDao">
+   <insert id="createOrder">
+       insert into orders(id,money,receiverAddress,receiverName,receiverPhone,user_id)
+       values(#{id},#{money},#{receiverAddress},#{receiverName},#{receiverPhone},#{user.id})
+   </insert>
+    <update id="changePaystate">
+        update orders set paystate=1 where id=#{out_trade_no}
+    </update>
+    <insert id="createOrderitem">
+       insert into orderitem(order_id,product_id,buynum)
+       values(#{order_id.id},#{product_id.id},#{buynum})
+   </insert>
+    <update id="changeProductsPnum">
+        update products set pnum=pnum-#{num} where id=#{id}
+    </update>
+    <select id="findOrderByUser" resultType="Orders">
+        select * from orders where user_id=#{id}
+    </select>
+</mapper>
