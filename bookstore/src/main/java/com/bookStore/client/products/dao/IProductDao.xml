@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookStore.client.products.dao.IProductDao">
+    <select id="findProduct_listByCategory" resultType="Products">
+        select * from products
+        <where>
+            <if test="category!=null and category!=''">
+                category=#{category}
+            </if>
+        </where>
+        limit #{pageModel.firstLimitParam},#{pageModel.pageSize}
+    </select>
+    <select id="findCategoryNum" resultType="int">
+        select count(*) from products
+        <where>
+            <if test="category!=null and category!=''">
+                category=#{category}
+            </if>
+        </where>
+    </select>
+    <select id="findProduct_listByName" resultType="Products">
+        select * from products
+        <where>
+            <if test="search!=null and search!='' and search!='请输入书名'">
+                name like "%"#{search}"%"
+            </if>
+        </where>
+        limit #{pageModel.firstLimitParam},#{pageModel.pageSize}
+    </select>
+    <select id="findProductByName" resultType="int">
+        select count(*) from products
+        <where>
+            <if test="search!=null and search!='' and search!='请输入书名'">
+                name like '%' #{search} '%'
+            </if>
+        </where>
+    </select>
+    <select id="findProductById" resultType="Products">
+        select * from products where id=#{id}
+    </select>
+</mapper>
