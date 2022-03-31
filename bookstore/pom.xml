@@ -100,7 +100,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>5.1.4.RELEASE</version>
+      <version>5.3.18</version>
     </dependency>
     <!--mybatis 一共13个，共需要导入8个-->
     <dependency>
